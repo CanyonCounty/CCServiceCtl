@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CCServiceCtl", "CCServiceCtl\CCServiceCtl.csproj", "{6668D7BE-FE91-4C5E-9C84-5CDB0780B178}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "CCServiceCtlSetup", "CCServiceCtlSetup\CCServiceCtlSetup.vdproj", "{CD8E2ABB-D7E6-4CCA-879E-B353559E3353}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CCServiceDebug", "CCServiceDebug\CCServiceDebug.csproj", "{C861A433-FE51-4A3D-B6E3-7187E020C25A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CCServiceLoader", "CCServiceLoader\CCServiceLoader.csproj", "{E96046D4-1F18-45A7-9399-8F8ABFC8C871}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin1", "Plugin1\Plugin1.csproj", "{711155BA-2A3C-48A0-9929-0F9FB5E07BCA}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "PluginSetup", "PluginSetup\PluginSetup.vdproj", "{62C99CA9-3543-4A21-8F16-ACA2FABD4AEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin2", "Plugin2\Plugin2.csproj", "{FCC0FAB5-60C6-4E4C-A593-C78AB67B354B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin3", "Plugin3\Plugin3.csproj", "{47D9B89E-DAD9-4952-A3EB-6860CF5CF392}"
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6668D7BE-FE91-4C5E-9C84-5CDB0780B178}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6668D7BE-FE91-4C5E-9C84-5CDB0780B178}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6668D7BE-FE91-4C5E-9C84-5CDB0780B178}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6668D7BE-FE91-4C5E-9C84-5CDB0780B178}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD8E2ABB-D7E6-4CCA-879E-B353559E3353}.Debug|Any CPU.ActiveCfg = Debug
+		{CD8E2ABB-D7E6-4CCA-879E-B353559E3353}.Release|Any CPU.ActiveCfg = Release
+		{C861A433-FE51-4A3D-B6E3-7187E020C25A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C861A433-FE51-4A3D-B6E3-7187E020C25A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C861A433-FE51-4A3D-B6E3-7187E020C25A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C861A433-FE51-4A3D-B6E3-7187E020C25A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E96046D4-1F18-45A7-9399-8F8ABFC8C871}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E96046D4-1F18-45A7-9399-8F8ABFC8C871}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E96046D4-1F18-45A7-9399-8F8ABFC8C871}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E96046D4-1F18-45A7-9399-8F8ABFC8C871}.Release|Any CPU.Build.0 = Release|Any CPU
+		{711155BA-2A3C-48A0-9929-0F9FB5E07BCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{711155BA-2A3C-48A0-9929-0F9FB5E07BCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{711155BA-2A3C-48A0-9929-0F9FB5E07BCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{711155BA-2A3C-48A0-9929-0F9FB5E07BCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62C99CA9-3543-4A21-8F16-ACA2FABD4AEA}.Debug|Any CPU.ActiveCfg = Debug
+		{62C99CA9-3543-4A21-8F16-ACA2FABD4AEA}.Release|Any CPU.ActiveCfg = Release
+		{FCC0FAB5-60C6-4E4C-A593-C78AB67B354B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCC0FAB5-60C6-4E4C-A593-C78AB67B354B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCC0FAB5-60C6-4E4C-A593-C78AB67B354B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCC0FAB5-60C6-4E4C-A593-C78AB67B354B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47D9B89E-DAD9-4952-A3EB-6860CF5CF392}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47D9B89E-DAD9-4952-A3EB-6860CF5CF392}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47D9B89E-DAD9-4952-A3EB-6860CF5CF392}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47D9B89E-DAD9-4952-A3EB-6860CF5CF392}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
