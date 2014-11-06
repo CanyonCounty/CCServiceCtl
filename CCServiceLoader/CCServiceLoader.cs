@@ -33,6 +33,14 @@ namespace CC.Service.Loader
       this.host = host;
     }
 
+    private int ComparePluginPriority(CCServiceInterface a, CCServiceInterface b)
+    {
+      int A = a.Priority;
+      int B = b.Priority;
+
+      return A.CompareTo(B);
+    }
+
     /// <summary>
     /// Only Loads plugins in the same directory or below from the application.
     /// This allows you to have your own directory or resources.
@@ -76,6 +84,8 @@ namespace CC.Service.Loader
         }
       }
 
+      plugins.Sort(ComparePluginPriority);
+      
       // Debug
       host.ShowMessage(this, "Timers = " + timers.Count.ToString());
     }

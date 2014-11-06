@@ -28,44 +28,48 @@
     /// </summary>
     private void InitializeComponent()
     {
+      this.splitContainer = new System.Windows.Forms.SplitContainer();
       this.listBox1 = new System.Windows.Forms.ListBox();
-      this.btnStart = new System.Windows.Forms.Button();
-      this.btnStop = new System.Windows.Forms.Button();
       this.lvMessage = new System.Windows.Forms.ListView();
+      this.ColumnDate = new System.Windows.Forms.ColumnHeader();
       this.ColumnPlugin = new System.Windows.Forms.ColumnHeader();
       this.ColumnMsg = new System.Windows.Forms.ColumnHeader();
-      this.ColumnDate = new System.Windows.Forms.ColumnHeader();
+      this.btnStop = new System.Windows.Forms.Button();
+      this.btnStart = new System.Windows.Forms.Button();
+      this.splitContainer.Panel1.SuspendLayout();
+      this.splitContainer.Panel2.SuspendLayout();
+      this.splitContainer.SuspendLayout();
       this.SuspendLayout();
+      // 
+      // splitContainer
+      // 
+      this.splitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.splitContainer.Location = new System.Drawing.Point(0, 0);
+      this.splitContainer.Name = "splitContainer";
+      // 
+      // splitContainer.Panel1
+      // 
+      this.splitContainer.Panel1.Controls.Add(this.listBox1);
+      // 
+      // splitContainer.Panel2
+      // 
+      this.splitContainer.Panel2.Controls.Add(this.lvMessage);
+      this.splitContainer.Panel2.Controls.Add(this.btnStop);
+      this.splitContainer.Panel2.Controls.Add(this.btnStart);
+      this.splitContainer.Size = new System.Drawing.Size(525, 306);
+      this.splitContainer.SplitterDistance = 146;
+      this.splitContainer.TabIndex = 1;
       // 
       // listBox1
       // 
-      this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                  | System.Windows.Forms.AnchorStyles.Left)));
+      this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                  | System.Windows.Forms.AnchorStyles.Left)
+                  | System.Windows.Forms.AnchorStyles.Right)));
       this.listBox1.IntegralHeight = false;
-      this.listBox1.Location = new System.Drawing.Point(13, 13);
+      this.listBox1.Location = new System.Drawing.Point(2, 16);
       this.listBox1.Name = "listBox1";
-      this.listBox1.Size = new System.Drawing.Size(130, 186);
-      this.listBox1.TabIndex = 0;
-      // 
-      // btnStart
-      // 
-      this.btnStart.Location = new System.Drawing.Point(149, 13);
-      this.btnStart.Name = "btnStart";
-      this.btnStart.Size = new System.Drawing.Size(75, 23);
-      this.btnStart.TabIndex = 1;
-      this.btnStart.Text = "Start";
-      this.btnStart.UseVisualStyleBackColor = true;
-      this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
-      // 
-      // btnStop
-      // 
-      this.btnStop.Location = new System.Drawing.Point(230, 13);
-      this.btnStop.Name = "btnStop";
-      this.btnStop.Size = new System.Drawing.Size(75, 23);
-      this.btnStop.TabIndex = 2;
-      this.btnStop.Text = "Stop";
-      this.btnStop.UseVisualStyleBackColor = true;
-      this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
+      this.listBox1.Size = new System.Drawing.Size(144, 274);
+      this.listBox1.TabIndex = 1;
       // 
       // lvMessage
       // 
@@ -77,57 +81,76 @@
             this.ColumnPlugin,
             this.ColumnMsg});
       this.lvMessage.FullRowSelect = true;
-      this.lvMessage.Location = new System.Drawing.Point(149, 42);
+      this.lvMessage.Location = new System.Drawing.Point(-1, 45);
       this.lvMessage.MultiSelect = false;
       this.lvMessage.Name = "lvMessage";
-      this.lvMessage.Size = new System.Drawing.Size(274, 157);
-      this.lvMessage.TabIndex = 3;
+      this.lvMessage.Size = new System.Drawing.Size(370, 245);
+      this.lvMessage.TabIndex = 6;
       this.lvMessage.UseCompatibleStateImageBehavior = false;
       this.lvMessage.View = System.Windows.Forms.View.Details;
-      this.lvMessage.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lvMessage_ColumnClick);
-      // 
-      // ColumnPlugin
-      // 
-      this.ColumnPlugin.DisplayIndex = 1;
-      this.ColumnPlugin.Text = "Plugin";
-      this.ColumnPlugin.Width = 111;
-      // 
-      // ColumnMsg
-      // 
-      this.ColumnMsg.DisplayIndex = 2;
-      this.ColumnMsg.Text = "Message";
-      this.ColumnMsg.Width = 147;
       // 
       // ColumnDate
       // 
       this.ColumnDate.Text = "Date";
       // 
+      // ColumnPlugin
+      // 
+      this.ColumnPlugin.Text = "Plugin";
+      this.ColumnPlugin.Width = 111;
+      // 
+      // ColumnMsg
+      // 
+      this.ColumnMsg.Text = "Message";
+      this.ColumnMsg.Width = 147;
+      // 
+      // btnStop
+      // 
+      this.btnStop.Location = new System.Drawing.Point(80, 16);
+      this.btnStop.Name = "btnStop";
+      this.btnStop.Size = new System.Drawing.Size(75, 23);
+      this.btnStop.TabIndex = 5;
+      this.btnStop.Text = "Stop";
+      this.btnStop.UseVisualStyleBackColor = true;
+      this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
+      // 
+      // btnStart
+      // 
+      this.btnStart.Location = new System.Drawing.Point(-1, 16);
+      this.btnStart.Name = "btnStart";
+      this.btnStart.Size = new System.Drawing.Size(75, 23);
+      this.btnStart.TabIndex = 4;
+      this.btnStart.Text = "Start";
+      this.btnStart.UseVisualStyleBackColor = true;
+      this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+      // 
       // frmMain
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(435, 218);
-      this.Controls.Add(this.lvMessage);
-      this.Controls.Add(this.btnStop);
-      this.Controls.Add(this.btnStart);
-      this.Controls.Add(this.listBox1);
+      this.ClientSize = new System.Drawing.Size(525, 306);
+      this.Controls.Add(this.splitContainer);
       this.Name = "frmMain";
       this.Text = "Service Debug";
       this.Load += new System.EventHandler(this.frmMain_Load);
       this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
+      this.splitContainer.Panel1.ResumeLayout(false);
+      this.splitContainer.Panel2.ResumeLayout(false);
+      this.splitContainer.ResumeLayout(false);
       this.ResumeLayout(false);
 
     }
 
     #endregion
 
+    private System.Windows.Forms.SplitContainer splitContainer;
     private System.Windows.Forms.ListBox listBox1;
-    private System.Windows.Forms.Button btnStart;
-    private System.Windows.Forms.Button btnStop;
     internal System.Windows.Forms.ListView lvMessage;
+    private System.Windows.Forms.ColumnHeader ColumnDate;
     internal System.Windows.Forms.ColumnHeader ColumnPlugin;
     internal System.Windows.Forms.ColumnHeader ColumnMsg;
-    private System.Windows.Forms.ColumnHeader ColumnDate;
+    private System.Windows.Forms.Button btnStop;
+    private System.Windows.Forms.Button btnStart;
+
   }
 }
 

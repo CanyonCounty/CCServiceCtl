@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.ServiceProcess;
 using System.Text;
@@ -15,9 +16,9 @@ namespace CC.Service.Ctl
     {
       ServiceBase[] ServicesToRun;
       ServicesToRun = new ServiceBase[] 
-			{ 
+      { 
         new CCServiceCtl()
-			};
+      };
       ServiceBase.Run(ServicesToRun);
     }
   }

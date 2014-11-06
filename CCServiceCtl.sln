@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CC.Service.Ctl", "CCServiceCtl\CC.Service.Ctl.csproj", "{6668D7BE-FE91-4C5E-9C84-5CDB0780B178}"
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "CCServiceCtlSetup", "CCServiceCtlSetup\CCServiceCtlSetup.vdproj", "{CD8E2ABB-D7E6-4CCA-879E-B353559E3353}"
@@ -17,11 +17,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin2", "Plugin2\Plugin2.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin3", "Plugin3\Plugin3.csproj", "{47D9B89E-DAD9-4952-A3EB-6860CF5CF392}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CC.Service.Console", "CC.Service.Console\CC.Service.Console.csproj", "{2C0634D8-2A0E-41F7-953F-51F97C10DAD8}"
+EndProject
 Global
-	GlobalSection(SubversionScc) = preSolution
-		Svn-Managed = True
-		Manager = AnkhSVN - Subversion Support for Visual Studio
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -55,8 +53,16 @@ Global
 		{47D9B89E-DAD9-4952-A3EB-6860CF5CF392}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47D9B89E-DAD9-4952-A3EB-6860CF5CF392}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47D9B89E-DAD9-4952-A3EB-6860CF5CF392}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C0634D8-2A0E-41F7-953F-51F97C10DAD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C0634D8-2A0E-41F7-953F-51F97C10DAD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C0634D8-2A0E-41F7-953F-51F97C10DAD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C0634D8-2A0E-41F7-953F-51F97C10DAD8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
 	EndGlobalSection
 EndGlobal

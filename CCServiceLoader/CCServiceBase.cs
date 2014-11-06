@@ -39,7 +39,10 @@ namespace CC.Service.Loader
     /// Default Interval of 5 minutes
     /// </summary>
     public const double DEFAULT_INTERVAL = 5 * MINUTE;
-
+    /// <summary>
+    /// Default Priority - directly in the middle of MaxInt (plenty of room)
+    /// </summary>
+    public const int DEFAULT_PRIORITY = int.MaxValue / 2;
     /// <summary>
     /// Helper property. If you're OnTick method takes more time then your set Interval check Die to see if your plugin got the OnStop message
     /// </summary>
@@ -61,6 +64,11 @@ namespace CC.Service.Loader
       get { return DEFAULT_INTERVAL; }
     }
 
+    public virtual int Priority
+    {
+      get { return DEFAULT_PRIORITY; }
+    }
+
     /// <summary>
     /// Overridable method that is called before your plugin can do anything. Like a Form OnLoad
     /// </summary>
@@ -76,6 +84,7 @@ namespace CC.Service.Loader
     }
     /// <summary>
     /// This gets called ONCE when your service plugin is told to start
+    /// Don't forget to add base.OnStart(); in your own method
     /// </summary>
     public virtual void OnStart()
     {
@@ -83,6 +92,7 @@ namespace CC.Service.Loader
     }
     /// <summary>
     /// This gets called ONCE when your service plugin is told to stop. This can occur BEFORE your OnTick is complete
+    /// Don't forget to add base.OnStop(); in your own method
     /// </summary>
     public virtual void OnStop()
     {

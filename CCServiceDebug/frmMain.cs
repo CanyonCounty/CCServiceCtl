@@ -34,7 +34,8 @@ namespace CCServiceDebug
       loader.LoadPlugins();
       foreach (CCServiceInterface plugin in loader.plugins)
       {
-        listBox1.Items.Add(plugin.Name);
+        //listBox1.Items.Add(plugin.Name);
+        listBox1.Items.Add(plugin.Name + " (" + plugin.Priority.ToString() + ")");
       }
     }
 
@@ -54,6 +55,8 @@ namespace CCServiceDebug
         lvMessage.Items.Add(item);
         logger.Write(_name + ": " + _msg);
       });
+
+      Application.DoEvents();
     }
 
     public void ShowMessage(CCServiceInterface sender, string msg)

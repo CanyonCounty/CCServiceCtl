@@ -24,7 +24,12 @@ namespace CC.Service.Loader
     /// Read-Only Property - return the Plugin Name. Spaces will be removed
     /// </summary>
     String Name { get; }
-    
+
+    /// <summary>
+    /// Read-Only Property - return the priority needed. (in case plugin 1 needs to run before plugin 2)
+    /// </summary>
+    int Priority { get; }
+
     /// <summary>
     /// Called After Initialize it's fired when the service Starts
     /// </summary>
