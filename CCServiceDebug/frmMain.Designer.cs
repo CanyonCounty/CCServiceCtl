@@ -34,13 +34,14 @@
       this.lvMessage = new System.Windows.Forms.ListView();
       this.ColumnPlugin = new System.Windows.Forms.ColumnHeader();
       this.ColumnMsg = new System.Windows.Forms.ColumnHeader();
+      this.ColumnDate = new System.Windows.Forms.ColumnHeader();
       this.SuspendLayout();
       // 
       // listBox1
       // 
       this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                   | System.Windows.Forms.AnchorStyles.Left)));
-      this.listBox1.FormattingEnabled = true;
+      this.listBox1.IntegralHeight = false;
       this.listBox1.Location = new System.Drawing.Point(13, 13);
       this.listBox1.Name = "listBox1";
       this.listBox1.Size = new System.Drawing.Size(130, 186);
@@ -72,10 +73,10 @@
                   | System.Windows.Forms.AnchorStyles.Left)
                   | System.Windows.Forms.AnchorStyles.Right)));
       this.lvMessage.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ColumnDate,
             this.ColumnPlugin,
             this.ColumnMsg});
       this.lvMessage.FullRowSelect = true;
-      this.lvMessage.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
       this.lvMessage.Location = new System.Drawing.Point(149, 42);
       this.lvMessage.MultiSelect = false;
       this.lvMessage.Name = "lvMessage";
@@ -83,16 +84,23 @@
       this.lvMessage.TabIndex = 3;
       this.lvMessage.UseCompatibleStateImageBehavior = false;
       this.lvMessage.View = System.Windows.Forms.View.Details;
+      this.lvMessage.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lvMessage_ColumnClick);
       // 
       // ColumnPlugin
       // 
+      this.ColumnPlugin.DisplayIndex = 1;
       this.ColumnPlugin.Text = "Plugin";
-      this.ColumnPlugin.Width = 70;
+      this.ColumnPlugin.Width = 111;
       // 
       // ColumnMsg
       // 
+      this.ColumnMsg.DisplayIndex = 2;
       this.ColumnMsg.Text = "Message";
-      this.ColumnMsg.Width = 190;
+      this.ColumnMsg.Width = 147;
+      // 
+      // ColumnDate
+      // 
+      this.ColumnDate.Text = "Date";
       // 
       // frmMain
       // 
@@ -119,6 +127,7 @@
     internal System.Windows.Forms.ListView lvMessage;
     internal System.Windows.Forms.ColumnHeader ColumnPlugin;
     internal System.Windows.Forms.ColumnHeader ColumnMsg;
+    private System.Windows.Forms.ColumnHeader ColumnDate;
   }
 }
 

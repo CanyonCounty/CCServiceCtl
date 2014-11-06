@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.IO;
 using System.Windows.Forms;
 
@@ -13,13 +10,15 @@ namespace CC.Common.Utils
     private TextWriter writer;
 
     public CCLogger()
-      : this(Path.ChangeExtension(Application.ExecutablePath, ".log"))
+      : this ("")
     {
     }
     
-    public CCLogger(string fileName)
+    public CCLogger(string extra)
     {
-      this.fileName = fileName;
+      string name = Path.ChangeExtension(Application.ExecutablePath, "");
+      if (!String.IsNullOrEmpty(extra)) name += extra + ".";
+      this.fileName = name + "log";
       this.writer = new StreamWriter(this.fileName, true);
     }
 
@@ -66,6 +65,8 @@ namespace CC.Common.Utils
         writer.WriteLine(DateTime.Now.ToString() + ": " + data);
       else
         writer.Write(DateTime.Now.ToString() + ": " + data);
+      
+      writer.Flush();
     }
 
     public void Clear()

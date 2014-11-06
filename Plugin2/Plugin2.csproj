@@ -50,9 +50,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CCServiceLoader\CCServiceLoader.csproj">
+    <ProjectReference Include="..\CCServiceLoader\CC.Service.Loader.csproj">
       <Project>{E96046D4-1F18-45A7-9399-8F8ABFC8C871}</Project>
-      <Name>CCServiceLoader</Name>
+      <Name>CC.Service.Loader</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

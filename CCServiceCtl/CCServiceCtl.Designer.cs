@@ -1,4 +1,4 @@
-﻿namespace CCServiceCtl
+﻿namespace CC.Service.Ctl
 {
   partial class CCServiceCtl
   {

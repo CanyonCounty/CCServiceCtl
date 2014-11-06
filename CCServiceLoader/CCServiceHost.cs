@@ -25,5 +25,18 @@ namespace CC.Service.Loader
     /// </summary>
     /// <param name="msg">The message you'd like to send</param>
     void ShowMessage(object sender, string msg);
+
+    /// <summary>
+    /// Sends a Debug Message to Host. It's up to the host as to how it's handled
+    /// </summary>
+    /// <param name="sender">Your plugin Name</param>
+    /// <param name="msg">The message you'd like to send</param>
+    void DebugMessage(CCServiceInterface sender, string msg);
+
+    /// <summary>
+    /// Sends a Debug Message to Host. It's up to the host as to how it's handled
+    /// </summary>
+    /// <param name="msg">The message you'd like to send</param>
+    void DebugMessage(object sender, string msg);
   }
 }

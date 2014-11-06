@@ -18,7 +18,7 @@ namespace Plugin1
 
     public double Interval
     {
-      get { return 5000; }
+      get { return 1000; }
     }
 
     public void Initialize(CCServiceHost host, ref bool needOwnTimer)

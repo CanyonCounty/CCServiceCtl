@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{47D9B89E-DAD9-4952-A3EB-6860CF5CF392}</ProjectGuid>
+    <ProjectGuid>{E96046D4-1F18-45A7-9399-8F8ABFC8C871}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Plugin3</RootNamespace>
-    <AssemblyName>Plugin3</AssemblyName>
+    <RootNamespace>CC.Service.Loader</RootNamespace>
+    <AssemblyName>CC.Service.Loader</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -36,6 +36,7 @@
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -46,14 +47,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="CCLogger.cs" />
+    <Compile Include="CCServiceBase.cs" />
+    <Compile Include="CCServiceHost.cs" />
+    <Compile Include="CCServiceInterface.cs" />
+    <Compile Include="CCServiceLoader.cs" />
+    <Compile Include="CCTimer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CCServiceLoader\CC.Service.Loader.csproj">
-      <Project>{E96046D4-1F18-45A7-9399-8F8ABFC8C871}</Project>
-      <Name>CC.Service.Loader</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -41,6 +41,8 @@ namespace CC.Service.Loader
     {
       string path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + Path.DirectorySeparatorChar;
       string[] files = Directory.GetFiles(path, "*.dll", SearchOption.AllDirectories);
+      //AppDomainSetup setup = new AppDomainSetup();
+      //setup.ApplicationBase = path;
       foreach (string file in files)
       {
         Assembly assembly = Assembly.LoadFile(file);
@@ -55,6 +57,10 @@ namespace CC.Service.Loader
               Type obj = t.GetInterface("CCServiceInterface", true);
               if (obj != null)
               {
+                //string binPath = Path.GetDirectoryName(file) + Path.DirectorySeparatorChar;
+                //if (!binPath.Equals(path))
+                //  setup.PrivateBinPath += binPath + ";";
+                
                 //pluginList.Add(file.Replace(path, ""));
                 CCServiceInterface plugin = (CCServiceInterface)assembly.CreateInstance(t.FullName);
                 bool needOwnTimer = false;
@@ -63,7 +69,7 @@ namespace CC.Service.Loader
                 
                 CCTimer timer = GetTimer(plugin.Interval, needOwnTimer);
                 timer.Add(plugin);
-                timers.Add(timer);
+                //timers.Add(timer);
               }
             }
           }
@@ -92,7 +98,7 @@ namespace CC.Service.Loader
     }
     */
     
-    public CCTimer GetTimer(double Interval, bool needsOwnTimer)
+    internal CCTimer GetTimer(double Interval, bool needsOwnTimer)
     {
       CCTimer ret = null;
 
@@ -110,11 +116,13 @@ namespace CC.Service.Loader
           }
         }
       }
-      
-      if (ret == null)
-        ret = new CCTimer(Interval);
 
-      ret.MyOwn = needsOwnTimer;
+      if (ret == null)
+      {
+        ret = new CCTimer(Interval);
+        ret.MyOwn = needsOwnTimer;
+        timers.Add(ret);
+      }
 
       return ret; // Should never be null
     }
@@ -146,11 +154,11 @@ namespace CC.Service.Loader
 
     public void StopPlugins()
     {
-      foreach (CCServiceInterface plugin in plugins)
-        plugin.OnStop();
-
       foreach (CCTimer timer in timers)
         timer.Enabled = false;
+
+      foreach (CCServiceInterface plugin in plugins)
+        plugin.OnStop();
     }
 
     public override string ToString()

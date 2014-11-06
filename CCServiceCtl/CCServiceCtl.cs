@@ -10,16 +10,21 @@ using CC.Common.Utils;
 using System.Timers;
 using CC.Service.Loader;
 
-namespace CCServiceCtl
+namespace CC.Service.Ctl
 {
   partial class CCServiceCtl : ServiceBase, CCServiceHost
   {
     private CCServiceLoader loader;
+    private bool logDebug;
+    private bool logMsg;
     
     public CCServiceCtl()
     {
       InitializeComponent();
-      
+
+      logDebug = Properties.Settings.Default.LogDebug;
+      logMsg = Properties.Settings.Default.LogMsg;
+
       loader = new CCServiceLoader(this);
       loader.LoadPlugins();
     }
@@ -37,14 +42,37 @@ namespace CCServiceCtl
       loader.StopPlugins();
     }
 
+    private void HandleMessages(string name, string msg, bool debug)
+    {
+      if (debug)
+      {
+        msg = "DEBUG: " + msg;
+      }
+      CCLogger.WriteLog(name + ": " + msg);
+    }
+
     public void ShowMessage(CCServiceInterface sender, string msg)
     {
-      CCLogger.WriteLog(sender.Name + ": " + msg);
+      if (logMsg)
+        HandleMessages(sender.Name, msg, false);
     }
 
     public void ShowMessage(object sender, string msg)
     {
-      CCLogger.WriteLog(sender.ToString() + ": " + msg);
+      if (logMsg)
+        HandleMessages(sender.ToString(), msg, false);
+    }
+    
+    public void DebugMessage(CCServiceInterface sender, string msg)
+    {
+      if (logDebug)
+        HandleMessages(sender.Name, msg, true);
+    }
+
+    public void DebugMessage(object sender, string msg)
+    {
+      if (logDebug)
+        HandleMessages(sender.ToString(), msg, true);
     }
 
   }

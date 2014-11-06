@@ -6,10 +6,11 @@ using System.Timers;
 
 namespace CC.Service.Loader
 {
-  public class CCTimer
+  internal class CCTimer
   {
     private Timer timer;
     private List<CCServiceInterface> plugins;
+    private Boolean _enable;
 
     public CCTimer(double Interval)
     {
@@ -26,7 +27,7 @@ namespace CC.Service.Loader
     public Boolean Enabled
     {
       get { return timer.Enabled; }
-      set { timer.Enabled = value; }
+      set { timer.Enabled = value; _enable = value; }
     }
 
     public Double Interval
@@ -51,7 +52,9 @@ namespace CC.Service.Loader
       {
         plugin.OnTick();
       }
-      timer.Enabled = true;
+      
+      // Check to see if we should continue
+      if (_enable) timer.Enabled = true;
     }
   }
 }

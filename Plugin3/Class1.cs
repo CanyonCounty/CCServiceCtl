@@ -9,6 +9,7 @@ namespace Plugin3
   public class Class1 : CCServiceInterface
   {
     private CCServiceHost _host;
+    private Boolean _die;
 
     public string Name
     {
@@ -30,10 +31,12 @@ namespace Plugin3
     public void OnStart()
     {
       _host.ShowMessage(this, "OnStart");
+      _die = false;
     }
 
     public void OnStop()
     {
+      _die = true;
       _host.ShowMessage(this, "OnStop");
     }
 
@@ -41,7 +44,11 @@ namespace Plugin3
     {
       // This should take some time
       _host.ShowMessage(this, "Doing some processing");
-      System.Threading.Thread.Sleep(5000);
+      for (int i = 0; i < 5000; i++)
+      {
+        System.Threading.Thread.Sleep(1);
+        if (_die) break;
+      }
       _host.ShowMessage(this, "Done with the processing");
     }
   }

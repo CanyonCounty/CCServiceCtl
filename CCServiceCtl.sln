@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CCServiceCtl", "CCServiceCtl\CCServiceCtl.csproj", "{6668D7BE-FE91-4C5E-9C84-5CDB0780B178}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CC.Service.Ctl", "CCServiceCtl\CC.Service.Ctl.csproj", "{6668D7BE-FE91-4C5E-9C84-5CDB0780B178}"
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "CCServiceCtlSetup", "CCServiceCtlSetup\CCServiceCtlSetup.vdproj", "{CD8E2ABB-D7E6-4CCA-879E-B353559E3353}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CCServiceDebug", "CCServiceDebug\CCServiceDebug.csproj", "{C861A433-FE51-4A3D-B6E3-7187E020C25A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CC.Service.Debug", "CCServiceDebug\CC.Service.Debug.csproj", "{C861A433-FE51-4A3D-B6E3-7187E020C25A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CCServiceLoader", "CCServiceLoader\CCServiceLoader.csproj", "{E96046D4-1F18-45A7-9399-8F8ABFC8C871}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CC.Service.Loader", "CCServiceLoader\CC.Service.Loader.csproj", "{E96046D4-1F18-45A7-9399-8F8ABFC8C871}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin1", "Plugin1\Plugin1.csproj", "{711155BA-2A3C-48A0-9929-0F9FB5E07BCA}"
 EndProject
