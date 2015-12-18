@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using CC.Service.Loader;
+﻿using CC.Service.Loader;
 using CC.Common.Utils;
 
 namespace CC.Service.Console
 {
   public class ConsoleCtl : CCServiceHost
   {
-    private CCServiceLoader _loader;
-    private CCLogger _logger;
+    private readonly CCServiceLoader _loader;
+    private readonly CCLogger _logger;
 
     public ConsoleCtl()
     {
@@ -20,9 +16,9 @@ namespace CC.Service.Console
       
       _loader = new CCServiceLoader(this);
       _loader.LoadPlugins();
-      foreach (CCServiceInterface plugin in _loader.plugins)
+      foreach (var plugin in _loader.plugins)
       {
-        _logger.Write("Loading Plugin: " + plugin.Name + ". Ignoring Interval of: " + plugin.Interval.ToString());
+        _logger.Write("Loading Plugin: " + plugin.Name + ". Ignoring Interval of: " + plugin.Interval);
       }
     }
 
@@ -30,7 +26,7 @@ namespace CC.Service.Console
     {
       // The loader.StartPlugins assumes a timer will be used
       // Roll your own to skip it.
-      foreach (CCServiceInterface plugin in _loader.plugins)
+      foreach (var plugin in _loader.plugins)
       {
         plugin.OnStart();
         plugin.OnTick();
@@ -40,29 +36,26 @@ namespace CC.Service.Console
 
     public void Start()
     {
-      foreach (CCServiceInterface plugin in _loader.plugins)
+      foreach (var plugin in _loader.plugins)
         plugin.OnStart();
     }
 
     public void Stop()
     {
-      foreach (CCServiceInterface plugin in _loader.plugins)
+      foreach (var plugin in _loader.plugins)
         plugin.OnStop();
     }
 
     public void Tick()
     {
-      foreach (CCServiceInterface plugin in _loader.plugins)
+      foreach (var plugin in _loader.plugins)
         plugin.OnTick();
     }
 
     private void HandleMessages(string name, string msg, bool debug)
     {
-      string _name = name;
-      String _msg = msg;
-
-      if (debug) _msg = "DEBUG: " + _msg;
-      _logger.Write(_name + ": " + _msg);
+      if (debug) msg = "DEBUG: " + msg;
+      _logger.Write(name + ": " + msg);
     }
 
     public void ShowMessage(CCServiceInterface sender, string msg)
