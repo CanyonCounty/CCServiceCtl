@@ -1,48 +1,40 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Linq;
-using System.ServiceProcess;
-using System.Text;
+﻿using System.ServiceProcess;
 using CC.Common.Utils;
-using System.Timers;
 using CC.Service.Loader;
 
 namespace CC.Service.Ctl
 {
-  partial class CCServiceCtl : ServiceBase, CCServiceHost
+  internal partial class CCServiceCtl : ServiceBase, CCServiceHost
   {
-    private CCServiceLoader loader;
-    private bool logDebug;
-    private bool logMsg;
+    private readonly CCServiceLoader _loader;
+    private readonly bool _logDebug;
+    private readonly bool _logMsg;
     
     public CCServiceCtl()
     {
       InitializeComponent();
 
-      logDebug = Properties.Settings.Default.LogDebug;
-      logMsg = Properties.Settings.Default.LogMsg;
+      _logDebug = Properties.Settings.Default.LogDebug;
+      _logMsg = Properties.Settings.Default.LogMsg;
 
-      loader = new CCServiceLoader(this);
-      loader.LoadPlugins();
+      _loader = new CCServiceLoader(this);
+      _loader.LoadPlugins();
     }
 
     protected override void OnStart(string[] args)
     {
       CCLogger.ClearLog();
       CCLogger.WriteLog("Starting Plugins");
-      loader.StartPlugins();
+      _loader.StartPlugins();
     }
 
     protected override void OnStop()
     {
       CCLogger.WriteLog("Stopping Plugins");
-      loader.StopPlugins();
+      _loader.StopPlugins();
     }
 
-    private void HandleMessages(string name, string msg, bool debug)
+    private static void HandleMessages(string name, string msg, bool debug)
     {
       if (debug)
       {
@@ -53,26 +45,34 @@ namespace CC.Service.Ctl
 
     public void ShowMessage(CCServiceInterface sender, string msg)
     {
-      if (logMsg)
-        HandleMessages(sender.Name, msg, false);
+        if (_logMsg)
+        {
+            HandleMessages(sender.Name, msg, false);
+        }
     }
 
     public void ShowMessage(object sender, string msg)
     {
-      if (logMsg)
-        HandleMessages(sender.ToString(), msg, false);
+        if (_logMsg)
+        {
+            HandleMessages(sender.ToString(), msg, false);
+        }
     }
     
     public void DebugMessage(CCServiceInterface sender, string msg)
     {
-      if (logDebug)
-        HandleMessages(sender.Name, msg, true);
+        if (_logDebug)
+        {
+            HandleMessages(sender.Name, msg, true);
+        }
     }
 
     public void DebugMessage(object sender, string msg)
     {
-      if (logDebug)
-        HandleMessages(sender.ToString(), msg, true);
+        if (_logDebug)
+        {
+            HandleMessages(sender.ToString(), msg, true);
+        }
     }
 
   }

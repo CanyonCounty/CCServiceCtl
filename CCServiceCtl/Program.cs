@@ -1,25 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections;
-using System.Linq;
-using System.ServiceProcess;
-using System.Text;
+﻿using System.ServiceProcess;
 
 namespace CC.Service.Ctl
 {
-  static class Program
+  public static class Program
   {
     /// <summary>
     /// The main entry point for the application.
     /// </summary>
-    static void Main()
+    public static void Main()
     {
-      ServiceBase[] ServicesToRun;
-      ServicesToRun = new ServiceBase[] 
-      { 
-        new CCServiceCtl()
-      };
-      ServiceBase.Run(ServicesToRun);
+        var servicesToRun = new ServiceBase[] 
+        { 
+            new CCServiceCtl()
+        };
+        ServiceBase.Run(servicesToRun);
     }
   }
 }
