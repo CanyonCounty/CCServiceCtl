@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Collections;
+﻿using System.Collections;
 using System.Windows.Forms;
 
-namespace CCServiceDebug
+namespace CC.Service.Debug
 {
   /// <summary>
   /// This class is an implementation of the 'IComparer' interface.

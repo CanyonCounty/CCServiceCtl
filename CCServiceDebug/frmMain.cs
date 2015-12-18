@@ -1,38 +1,33 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+using System.Globalization;
 using System.Windows.Forms;
-using CC.Service.Loader;
 using CC.Common.Utils;
+using CC.Service.Loader;
 
-namespace CCServiceDebug
+namespace CC.Service.Debug
 {
-  public partial class frmMain : Form, CCServiceHost
+  public partial class FrmMain : Form, CCServiceHost
   {
-    private ListViewColumnSorter lvwColumnSorter;
-    private CCServiceLoader loader;
-    private CCLogger logger;
+    private readonly ListViewColumnSorter _lvwColumnSorter;
+    private CCServiceLoader _loader;
+    private readonly CCLogger _logger;
     //private CCServiceInterface _sender;
     //private String _msg;
 
-    public frmMain()
+    public FrmMain()
     {
       InitializeComponent();
-      lvwColumnSorter = new ListViewColumnSorter();
-      this.lvMessage.ListViewItemSorter = lvwColumnSorter;
-      this.logger = new CCLogger();
-      logger.Clear();
+      _lvwColumnSorter = new ListViewColumnSorter();
+      lvMessage.ListViewItemSorter = _lvwColumnSorter;
+      _logger = new CCLogger();
+      _logger.Clear();
     }
 
     private void frmMain_Load(object sender, EventArgs e)
     {
-      loader = new CCServiceLoader(this);
-      loader.LoadPlugins();
-      foreach (CCServiceInterface plugin in loader.plugins)
+      _loader = new CCServiceLoader(this);
+      _loader.LoadPlugins();
+      foreach (var plugin in _loader.plugins)
       {
         //listBox1.Items.Add(plugin.Name);
         listBox1.Items.Add(plugin.Name + " (" + plugin.Priority.ToString() + ")");
@@ -41,19 +36,17 @@ namespace CCServiceDebug
 
     private void HandleMessages(string name, string msg, bool debug)
     {
-      string _name = name;
-      String _msg = msg;
-      DateTime _now = DateTime.Now;
+      var now = DateTime.Now;
 
-      if (debug) _msg = "DEBUG: " + _msg;
+      if (debug) msg = "DEBUG: " + msg;
 
-      this.Invoke((MethodInvoker)delegate
+      Invoke((MethodInvoker)delegate
       {
-        ListViewItem item = new ListViewItem(_now.ToString());
-        item.SubItems.Add(_name);
-        item.SubItems.Add(_msg);
+        var item = new ListViewItem(now.ToString(CultureInfo.CurrentCulture));
+        item.SubItems.Add(name);
+        item.SubItems.Add(msg);
         lvMessage.Items.Add(item);
-        logger.Write(_name + ": " + _msg);
+        _logger.Write(name + ": " + msg);
       });
 
       Application.DoEvents();
@@ -81,43 +74,36 @@ namespace CCServiceDebug
 
     private void btnStart_Click(object sender, EventArgs e)
     {
-      loader.StartPlugins();
+      _loader.StartPlugins();
     }
 
     private void btnStop_Click(object sender, EventArgs e)
     {
-      loader.StopPlugins();
+      _loader.StopPlugins();
     }
 
     private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
     {
-      loader.StopPlugins();
+      _loader.StopPlugins();
     }
 
     private void lvMessage_ColumnClick(object sender, ColumnClickEventArgs e)
     {
       // Determine if clicked column is already the column that is being sorted.
-      if (e.Column == lvwColumnSorter.SortColumn)
+      if (e.Column == _lvwColumnSorter.SortColumn)
       {
         // Reverse the current sort direction for this column.
-        if (lvwColumnSorter.Order == SortOrder.Ascending)
-        {
-          lvwColumnSorter.Order = SortOrder.Descending;
-        }
-        else
-        {
-          lvwColumnSorter.Order = SortOrder.Ascending;
-        }
+        _lvwColumnSorter.Order = _lvwColumnSorter.Order == SortOrder.Ascending ? SortOrder.Descending : SortOrder.Ascending;
       }
       else
       {
         // Set the column number that is to be sorted; default to ascending.
-        lvwColumnSorter.SortColumn = e.Column;
-        lvwColumnSorter.Order = SortOrder.Ascending;
+        _lvwColumnSorter.SortColumn = e.Column;
+        _lvwColumnSorter.Order = SortOrder.Ascending;
       }
 
       // Perform the sort with these new sort options.
-      this.lvMessage.Sort();
+      lvMessage.Sort();
 
     }
   }
