@@ -1,60 +1,62 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Timers;
 
 namespace CC.Service.Loader
 {
-  internal class CCTimer
-  {
-    private Timer timer;
-    private List<CCServiceInterface> plugins;
-    private Boolean _enable;
-
-    public CCTimer(double Interval)
+    internal class CCTimer
     {
-      plugins = new List<CCServiceInterface>();
-      timer = new Timer(Interval);
-      timer.Elapsed += new ElapsedEventHandler(TimerTick);
-      
-      timer.Enabled = false;
-      this.MyOwn = false;
-    }
+        private readonly Timer _timer;
+        private readonly List<CCServiceInterface> _plugins;
+        private bool _enable;
 
-    public Boolean MyOwn { get; set; }
+        public CCTimer(double interval)
+        {
+            _plugins = new List<CCServiceInterface>();
+            _timer = new Timer(interval);
+            _timer.Elapsed += TimerTick;
 
-    public Boolean Enabled
-    {
-      get { return timer.Enabled; }
-      set { timer.Enabled = value; _enable = value; }
-    }
+            _timer.Enabled = false;
+            MyOwn = false;
+        }
 
-    public Double Interval
-    {
-      get { return timer.Interval; }
-    }
+        public bool MyOwn { get; set; }
 
-    public void Add(CCServiceInterface plugin)
-    {
-      this.plugins.Add(plugin);
-    }
+        public bool Enabled
+        {
+            get { return _timer.Enabled; }
+            set
+            {
+                _timer.Enabled = value;
+                _enable = value;
+            }
+        }
 
-    public void AddRange(CCServiceInterface[] plugins)
-    {
-      this.plugins.AddRange(plugins);
-    }
+        public double Interval
+        {
+            get { return _timer.Interval; }
+        }
 
-    private void TimerTick(object sender, EventArgs e)
-    {
-      timer.Enabled = false;
-      foreach (CCServiceInterface plugin in plugins)
-      {
-        plugin.OnTick();
-      }
-      
-      // Check to see if we should continue
-      if (_enable) timer.Enabled = true;
+        public void Add(CCServiceInterface plugin)
+        {
+            _plugins.Add(plugin);
+        }
+
+        public void AddRange(CCServiceInterface[] plugins)
+        {
+            _plugins.AddRange(plugins);
+        }
+
+        private void TimerTick(object sender, EventArgs e)
+        {
+            _timer.Enabled = false;
+            foreach (CCServiceInterface plugin in _plugins)
+            {
+                plugin.OnTick();
+            }
+
+            // Check to see if we should continue
+            if (_enable) _timer.Enabled = true;
+        }
     }
-  }
 }

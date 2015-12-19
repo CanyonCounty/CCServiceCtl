@@ -1,16 +1,15 @@
 ﻿using System.ServiceProcess;
-using CC.Common.Utils;
 using CC.Service.Loader;
 
 namespace CC.Service.Ctl
 {
-  internal partial class CCServiceCtl : ServiceBase, CCServiceHost
+  internal partial class IccServiceCtl : ServiceBase, ICCServiceHost
   {
     private readonly CCServiceLoader _loader;
     private readonly bool _logDebug;
     private readonly bool _logMsg;
     
-    public CCServiceCtl()
+    public IccServiceCtl()
     {
       InitializeComponent();
 

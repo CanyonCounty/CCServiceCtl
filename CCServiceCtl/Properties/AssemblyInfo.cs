@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("CCServiceCtl")]
+[assembly: AssemblyTitle("IccServiceCtl")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Canyon County")]
-[assembly: AssemblyProduct("CCServiceCtl")]
+[assembly: AssemblyProduct("IccServiceCtl")]
 [assembly: AssemblyCopyright("Copyright © Canyon County 2010")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

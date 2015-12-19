@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Globalization;
 using System.Windows.Forms;
-using CC.Common.Utils;
 using CC.Service.Loader;
 
 namespace CC.Service.Debug
 {
-  public partial class FrmMain : Form, CCServiceHost
+  public partial class FrmMain : Form, ICCServiceHost
   {
     private readonly ListViewColumnSorter _lvwColumnSorter;
     private CCServiceLoader _loader;

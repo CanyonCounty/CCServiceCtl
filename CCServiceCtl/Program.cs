@@ -11,7 +11,7 @@ namespace CC.Service.Ctl
     {
         var servicesToRun = new ServiceBase[] 
         { 
-            new CCServiceCtl()
+            new IccServiceCtl()
         };
         ServiceBase.Run(servicesToRun);
     }

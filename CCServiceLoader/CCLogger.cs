@@ -1,13 +1,14 @@
 ﻿using System;
+using System.Globalization;
 using System.IO;
 using System.Windows.Forms;
 
-namespace CC.Common.Utils
+namespace CC.Service.Loader
 {
   public class CCLogger
   {
-    private string fileName;
-    private TextWriter writer;
+    private readonly string _fileName;
+    private TextWriter _writer;
 
     public CCLogger()
       : this ("")
@@ -16,10 +17,10 @@ namespace CC.Common.Utils
     
     public CCLogger(string extra)
     {
-      string name = Path.ChangeExtension(Application.ExecutablePath, "");
-      if (!String.IsNullOrEmpty(extra)) name += extra + ".";
-      this.fileName = name + "log";
-      this.writer = new StreamWriter(this.fileName, true);
+      var name = Path.ChangeExtension(Application.ExecutablePath, "");
+      if (!string.IsNullOrEmpty(extra)) name += extra + ".";
+      _fileName = name + "log";
+      _writer = new StreamWriter(_fileName, true);
     }
 
     public static void WriteLog(string data)
@@ -33,9 +34,9 @@ namespace CC.Common.Utils
       using (TextWriter tw = new StreamWriter(fileName, true))
       {
         if (newline)
-          tw.WriteLine(DateTime.Now.ToString() + ": " + data);
+          tw.WriteLine(DateTime.Now.ToString(CultureInfo.CurrentCulture) + ": " + data);
         else
-          tw.Write(DateTime.Now.ToString() + ": " + data);
+          tw.Write(DateTime.Now.ToString(CultureInfo.CurrentCulture) + ": " + data);
         
         tw.Flush();
         tw.Close();
@@ -44,7 +45,7 @@ namespace CC.Common.Utils
 
     public static void ClearLog()
     {
-      string fileName = Path.ChangeExtension(Application.ExecutablePath, ".log");
+      var fileName = Path.ChangeExtension(Application.ExecutablePath, ".log");
       using (TextWriter tw = new StreamWriter(fileName, false))
       {
         tw.Write("");
@@ -62,31 +63,31 @@ namespace CC.Common.Utils
     public void Write(string data, bool newline)
     {
       if (newline)
-        writer.WriteLine(DateTime.Now.ToString() + ": " + data);
+        _writer.WriteLine(DateTime.Now.ToString(CultureInfo.CurrentCulture) + ": " + data);
       else
-        writer.Write(DateTime.Now.ToString() + ": " + data);
+        _writer.Write(DateTime.Now.ToString(CultureInfo.CurrentCulture) + ": " + data);
       
-      writer.Flush();
+      _writer.Flush();
     }
 
     public void Clear()
     {
       // I don't want to DELETE the file, because I still want it there.
-      writer.Close();
-      using (TextWriter tw = new StreamWriter(fileName, false))
+      _writer.Close();
+      using (TextWriter tw = new StreamWriter(_fileName, false))
       {
         tw.Write("");
 
         tw.Flush();
         tw.Close();
       }
-      this.writer = new StreamWriter(this.fileName, true);
+      _writer = new StreamWriter(_fileName, true);
     }
 
     public void Close()
     {
-      writer.Flush();
-      writer.Close();
+      _writer.Flush();
+      _writer.Close();
     }
   }
 }

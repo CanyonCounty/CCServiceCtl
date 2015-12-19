@@ -8,7 +8,7 @@ namespace Plugin2
 {
   public class MyOtherPlugin : CCServiceInterface
   {
-    private CCServiceHost _host;
+    private ICCServiceHost _host;
 
     public string Name
     {
@@ -25,7 +25,7 @@ namespace Plugin2
       get { return int.MaxValue - 20; }
     }
 
-    public void Initialize(CCServiceHost host, ref bool needOwnTimer)
+    public void Initialize(ICCServiceHost host, ref bool needOwnTimer)
     {
       _host = host;
       host.ShowMessage(this, "Initialize");

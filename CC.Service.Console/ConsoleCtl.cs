@@ -1,9 +1,8 @@
 ﻿using CC.Service.Loader;
-using CC.Common.Utils;
 
 namespace CC.Service.Console
 {
-  public class ConsoleCtl : CCServiceHost
+  public class ConsoleCtl : ICCServiceHost
   {
     private readonly CCServiceLoader _loader;
     private readonly CCLogger _logger;

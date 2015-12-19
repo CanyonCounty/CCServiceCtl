@@ -24,9 +24,9 @@ namespace CC.Service.Loader
     //public List<string> pluginList;
     public List<CCServiceInterface> plugins;
     private List<CCTimer> timers;
-    private CCServiceHost host;
+    private ICCServiceHost host;
 
-    public CCServiceLoader(CCServiceHost host)
+    public CCServiceLoader(ICCServiceHost host)
     {
       this.plugins = new List<CCServiceInterface>();
       this.timers = new List<CCTimer>();

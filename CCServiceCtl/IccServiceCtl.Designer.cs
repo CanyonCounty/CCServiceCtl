@@ -1,6 +1,6 @@
 ﻿namespace CC.Service.Ctl
 {
-  partial class CCServiceCtl
+  partial class IccServiceCtl
   {
     /// <summary> 
     /// Required designer variable.
@@ -29,9 +29,9 @@
     private void InitializeComponent()
     {
       // 
-      // CCServiceCtl
+      // IccServiceCtl
       // 
-      this.ServiceName = "CCServiceCtl";
+      this.ServiceName = "IccServiceCtl";
 
     }
 

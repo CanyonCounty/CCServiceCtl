@@ -8,7 +8,7 @@ namespace Plugin3
 {
   public class MyLogPlugin : CCServiceBase
   {
-    private CCServiceHost _host;
+    private ICCServiceHost _host;
 
     public override string Name
     {
@@ -20,7 +20,7 @@ namespace Plugin3
       get { return 1000; }
     }
 
-    public override void Initialize(CCServiceHost host, ref bool needOwnTimer)
+    public override void Initialize(ICCServiceHost host, ref bool needOwnTimer)
     {
       _host = host;
       host.ShowMessage(this, "Initialize");

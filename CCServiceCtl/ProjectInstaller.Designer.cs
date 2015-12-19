@@ -41,7 +41,7 @@
       // 
       this.serviceInstaller1.Description = "Canyon County Service Controler";
       this.serviceInstaller1.DisplayName = "CCService Control";
-      this.serviceInstaller1.ServiceName = "CCServiceCtl";
+      this.serviceInstaller1.ServiceName = "IccServiceCtl";
       this.serviceInstaller1.StartType = System.ServiceProcess.ServiceStartMode.Automatic;
       // 
       // ProjectInstaller

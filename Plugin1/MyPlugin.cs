@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using CC.Service.Loader;
-using CC.Common.Utils;
 
 namespace Plugin1
 {
   public class MyPlugin : CCServiceInterface
   {
-    private CCServiceHost _host;
+    private ICCServiceHost _host;
 
     public string Name
     {
@@ -26,7 +25,7 @@ namespace Plugin1
       get { return int.MaxValue - 10; }
     }
 
-    public void Initialize(CCServiceHost host, ref bool needOwnTimer)
+    public void Initialize(ICCServiceHost host, ref bool needOwnTimer)
     {
       _host = host;
       host.ShowMessage(this, "Initialize");
