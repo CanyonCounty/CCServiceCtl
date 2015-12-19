@@ -23,12 +23,7 @@ namespace CC.Service.Loader
       _writer = new StreamWriter(_fileName, true);
     }
 
-    public static void WriteLog(string data)
-    {
-      WriteLog(data, true);
-    }
-
-    public static void WriteLog(string data, bool newline)
+      public static void WriteLog(string data, bool newline = true)
     {
       string fileName = Path.ChangeExtension(Application.ExecutablePath, ".log");
       using (TextWriter tw = new StreamWriter(fileName, true))
@@ -55,12 +50,7 @@ namespace CC.Service.Loader
       }
     }
 
-    public void Write(string data)
-    {
-      Write(data, true);
-    }
-
-    public void Write(string data, bool newline)
+      public void Write(string data, bool newline = true)
     {
       if (newline)
         _writer.WriteLine(DateTime.Now.ToString(CultureInfo.CurrentCulture) + ": " + data);
