@@ -15,7 +15,7 @@ namespace CC.Service.Console
       
       _loader = new CCServiceLoader(this);
       _loader.LoadPlugins();
-      foreach (var plugin in _loader.plugins)
+      foreach (var plugin in _loader.Plugins)
       {
         _logger.Write("Loading Plugin: " + plugin.Name + ". Ignoring Interval of: " + plugin.Interval);
       }
@@ -25,7 +25,7 @@ namespace CC.Service.Console
     {
       // The loader.StartPlugins assumes a timer will be used
       // Roll your own to skip it.
-      foreach (var plugin in _loader.plugins)
+      foreach (var plugin in _loader.Plugins)
       {
         plugin.OnStart();
         plugin.OnTick();
@@ -35,19 +35,19 @@ namespace CC.Service.Console
 
     public void Start()
     {
-      foreach (var plugin in _loader.plugins)
+      foreach (var plugin in _loader.Plugins)
         plugin.OnStart();
     }
 
     public void Stop()
     {
-      foreach (var plugin in _loader.plugins)
+      foreach (var plugin in _loader.Plugins)
         plugin.OnStop();
     }
 
     public void Tick()
     {
-      foreach (var plugin in _loader.plugins)
+      foreach (var plugin in _loader.Plugins)
         plugin.OnTick();
     }
 
@@ -57,7 +57,7 @@ namespace CC.Service.Console
       _logger.Write(name + ": " + msg);
     }
 
-    public void ShowMessage(CCServiceInterface sender, string msg)
+    public void ShowMessage(ICCServiceInterface sender, string msg)
     {
       HandleMessages(sender.Name, msg, false);
     }
@@ -67,7 +67,7 @@ namespace CC.Service.Console
       HandleMessages(sender.ToString(), msg, false);
     }
 
-    public void DebugMessage(CCServiceInterface sender, string msg)
+    public void DebugMessage(ICCServiceInterface sender, string msg)
     {
       HandleMessages(sender.Name, msg, true);
     }

@@ -14,7 +14,7 @@ namespace CC.Service.Loader
         /// </summary>
         /// <param name="sender">Your plugin Name</param>
         /// <param name="msg">The message you'd like to send</param>
-        void ShowMessage(CCServiceInterface sender, string msg);
+        void ShowMessage(ICCServiceInterface sender, string msg);
 
         /// <summary>
         /// Alerts the user of your message
@@ -28,7 +28,7 @@ namespace CC.Service.Loader
         /// </summary>
         /// <param name="sender">Your plugin Name</param>
         /// <param name="msg">The message you'd like to send</param>
-        void DebugMessage(CCServiceInterface sender, string msg);
+        void DebugMessage(ICCServiceInterface sender, string msg);
 
         /// <summary>
         /// Sends a Debug Message to Host. It's up to the host as to how it's handled

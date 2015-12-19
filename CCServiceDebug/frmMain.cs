@@ -10,7 +10,7 @@ namespace CC.Service.Debug
     private readonly ListViewColumnSorter _lvwColumnSorter;
     private CCServiceLoader _loader;
     private readonly CCLogger _logger;
-    //private CCServiceInterface _sender;
+    //private ICCServiceInterface _sender;
     //private String _msg;
 
     public FrmMain()
@@ -26,7 +26,7 @@ namespace CC.Service.Debug
     {
       _loader = new CCServiceLoader(this);
       _loader.LoadPlugins();
-      foreach (var plugin in _loader.plugins)
+      foreach (var plugin in _loader.Plugins)
       {
         //listBox1.Items.Add(plugin.Name);
         listBox1.Items.Add(plugin.Name + " (" + plugin.Priority.ToString() + ")");
@@ -51,7 +51,7 @@ namespace CC.Service.Debug
       Application.DoEvents();
     }
 
-    public void ShowMessage(CCServiceInterface sender, string msg)
+    public void ShowMessage(ICCServiceInterface sender, string msg)
     {
       HandleMessages(sender.Name, msg, false);
     }
@@ -61,7 +61,7 @@ namespace CC.Service.Debug
       HandleMessages(sender.ToString(), msg, false);
     }
 
-    public void DebugMessage(CCServiceInterface sender, string msg)
+    public void DebugMessage(ICCServiceInterface sender, string msg)
     {
       HandleMessages(sender.Name, msg, true);
     }

@@ -7,12 +7,12 @@ namespace CC.Service.Loader
     internal class CCTimer
     {
         private readonly Timer _timer;
-        private readonly List<CCServiceInterface> _plugins;
+        private readonly List<ICCServiceInterface> _plugins;
         private bool _enable;
 
         public CCTimer(double interval)
         {
-            _plugins = new List<CCServiceInterface>();
+            _plugins = new List<ICCServiceInterface>();
             _timer = new Timer(interval);
             _timer.Elapsed += TimerTick;
 
@@ -37,12 +37,12 @@ namespace CC.Service.Loader
             get { return _timer.Interval; }
         }
 
-        public void Add(CCServiceInterface plugin)
+        public void Add(ICCServiceInterface plugin)
         {
             _plugins.Add(plugin);
         }
 
-        public void AddRange(CCServiceInterface[] plugins)
+        public void AddRange(IEnumerable<ICCServiceInterface> plugins)
         {
             _plugins.AddRange(plugins);
         }
@@ -50,7 +50,7 @@ namespace CC.Service.Loader
         private void TimerTick(object sender, EventArgs e)
         {
             _timer.Enabled = false;
-            foreach (CCServiceInterface plugin in _plugins)
+            foreach (var plugin in _plugins)
             {
                 plugin.OnTick();
             }

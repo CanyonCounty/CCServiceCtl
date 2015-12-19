@@ -1,11 +1,11 @@
 ﻿namespace CC.Service.Loader
 {
     /// <summary>
-    /// Helper class that makes implementing CCServiceInterface easier
+    /// Helper class that makes implementing ICCServiceInterface easier
     /// Defaults to a five minute interval
     /// All you have to define is the Name property and OnTick method
     /// </summary>
-    public abstract class CCServiceBase : CCServiceInterface
+    public abstract class CCServiceBase : ICCServiceInterface
     {
         /// <summary>
         /// Defines One Second
@@ -77,17 +77,8 @@
         /// Overridable method that is called before your plugin can do anything. Like a Form OnLoad
         /// </summary>
         /// <param name="host">The Host controller object to send messages to the host service or application</param>
-        public virtual void Initialize(ICCServiceHost host)
-        {
-            var needOwnThread = false;
-            Initialize(host, ref needOwnThread);
-        }
-
-        /// <summary>
-        /// Overridable method that is called before your plugin can do anything. Like a Form OnLoad
-        /// </summary>
-        /// <param name="host">The Host controller object to send messages to the host service or application</param>
-        /// <param name="needOwnThread">Set this to true if you require your own thread (if you can't play nice with other plugins)</param>
+        /// <param name="needOwnThread">Set this to true if you require your own thread (if you can't play nice with other Plugins)</param>
+        // ReSharper disable once RedundantAssignment - cause it's retarded. I want an optional here folks! using out forces the user to set it!
         public virtual void Initialize(ICCServiceHost host, ref bool needOwnThread)
         {
             Host = host;

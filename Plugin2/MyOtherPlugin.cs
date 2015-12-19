@@ -1,49 +1,45 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using CC.Service.Loader;
+﻿using CC.Service.Loader;
 
 namespace Plugin2
 {
-  public class MyOtherPlugin : CCServiceInterface
-  {
-    private ICCServiceHost _host;
+    public class MyOtherPlugin : ICCServiceInterface
+    {
+        private ICCServiceHost _host;
 
-    public string Name
-    {
-      get { return "MyOtherPlugin"; }
-    }
+        public string Name
+        {
+            get { return "MyOtherPlugin"; }
+        }
 
-    public double Interval
-    {
-      get { return 1000; }
-    }
-    
-    public int Priority
-    {
-      get { return int.MaxValue - 20; }
-    }
+        public double Interval
+        {
+            get { return 1000; }
+        }
 
-    public void Initialize(ICCServiceHost host, ref bool needOwnTimer)
-    {
-      _host = host;
-      host.ShowMessage(this, "Initialize");
-    }
+        public int Priority
+        {
+            get { return int.MaxValue - 20; }
+        }
 
-    public void OnStart()
-    {
-      _host.ShowMessage(this, "OnStart");
-    }
+        public void Initialize(ICCServiceHost host, ref bool needOwnTimer)
+        {
+            _host = host;
+            host.ShowMessage(this, "Initialize");
+        }
 
-    public void OnStop()
-    {
-      _host.ShowMessage(this, "OnStop");
-    }
+        public void OnStart()
+        {
+            _host.ShowMessage(this, "OnStart");
+        }
 
-    public void OnTick()
-    {
-      _host.ShowMessage(this, "OnTick");
+        public void OnStop()
+        {
+            _host.ShowMessage(this, "OnStop");
+        }
+
+        public void OnTick()
+        {
+            _host.ShowMessage(this, "OnTick");
+        }
     }
-  }
 }

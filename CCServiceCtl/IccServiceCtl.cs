@@ -42,7 +42,7 @@ namespace CC.Service.Ctl
       CCLogger.WriteLog(name + ": " + msg);
     }
 
-    public void ShowMessage(CCServiceInterface sender, string msg)
+    public void ShowMessage(ICCServiceInterface sender, string msg)
     {
         if (_logMsg)
         {
@@ -58,7 +58,7 @@ namespace CC.Service.Ctl
         }
     }
     
-    public void DebugMessage(CCServiceInterface sender, string msg)
+    public void DebugMessage(ICCServiceInterface sender, string msg)
     {
         if (_logDebug)
         {

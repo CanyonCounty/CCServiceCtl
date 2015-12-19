@@ -50,7 +50,7 @@
     <Compile Include="CCLogger.cs" />
     <Compile Include="CCServiceBase.cs" />
     <Compile Include="ICCServiceHost.cs" />
-    <Compile Include="CCServiceInterface.cs" />
+    <Compile Include="ICCServiceInterface.cs" />
     <Compile Include="CCServiceLoader.cs" />
     <Compile Include="CCTimer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
