@@ -1,6 +1,6 @@
 ﻿namespace CC.Service.Ctl
 {
-  partial class IccServiceCtl
+  partial class CCServiceCtl
   {
     /// <summary> 
     /// Required designer variable.

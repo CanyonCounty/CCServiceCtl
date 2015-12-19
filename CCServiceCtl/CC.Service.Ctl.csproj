@@ -50,11 +50,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IccServiceCtl.cs">
+    <Compile Include="CCServiceCtl.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="IccServiceCtl.Designer.cs">
-      <DependentUpon>IccServiceCtl.cs</DependentUpon>
+    <Compile Include="CCServiceCtl.Designer.cs">
+      <DependentUpon>CCServiceCtl.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="ProjectInstaller.cs">
@@ -71,8 +71,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="IccServiceCtl.resx">
-      <DependentUpon>IccServiceCtl.cs</DependentUpon>
+    <EmbeddedResource Include="CCServiceCtl.resx">
+      <DependentUpon>CCServiceCtl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProjectInstaller.resx">
       <DependentUpon>ProjectInstaller.cs</DependentUpon>

@@ -3,13 +3,13 @@ using CC.Service.Loader;
 
 namespace CC.Service.Ctl
 {
-  internal partial class IccServiceCtl : ServiceBase, ICCServiceHost
+  internal partial class CCServiceCtl : ServiceBase, ICCServiceHost
   {
     private readonly CCServiceLoader _loader;
     private readonly bool _logDebug;
     private readonly bool _logMsg;
     
-    public IccServiceCtl()
+    public CCServiceCtl()
     {
       InitializeComponent();
 
